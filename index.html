@@ -2,34 +2,58 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pregunta Especial 💖</title>
 
 <style>
     body{
         font-family: Arial, sans-serif;
-        text-align: center;
         background-color: #ffe6f0;
         margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         overflow: hidden;
     }
 
-    h1, h2{
-        color: #d63384;
-    }
-
     .container{
-        margin-top: 100px;
         position: relative;
         z-index: 2;
+        padding: 20px;
+        width: 90%;
+        max-width: 500px;
+    }
+
+    h1{
+        font-size: 32px;
+        color: #d63384;
+        margin-bottom: 10px;
+    }
+
+    h2{
+        font-size: 22px;
+        color: #d63384;
+        margin: 8px 0;
+    }
+
+    h3{
+        font-size: 18px;
+        margin: 8px 0;
+    }
+
+    p{
+        font-size: 18px;
     }
 
     .btn{
-        padding: 15px 30px;
-        font-size: 20px;
+        padding: 15px 25px;
+        font-size: 18px;
         border: none;
         border-radius: 10px;
         cursor: pointer;
-        margin: 20px;
+        margin: 15px;
         transition: all 0.3s ease;
     }
 
@@ -47,7 +71,6 @@
         position: fixed;
         bottom: -10px;
         color: red;
-        font-size: 20px;
         animation: float 5s linear infinite;
         opacity: 0.7;
     }
@@ -70,7 +93,7 @@
 <div class="container" id="mainContent">
     <h1>Hola mi amor Noemy 💖</h1>
     <h2>Bryita tiene una pregunta...</h2>
-    <h2>¿Quieres ser su San Valentín?</h2>
+    <h2>¿Quieres ser mi San Valentín?</h2>
 
     <button id="yes" class="btn">Sí</button>
     <button id="no" class="btn">No</button>
@@ -83,41 +106,41 @@ let yesBtn = document.getElementById("yes");
 let noBtn = document.getElementById("no");
 let music = document.getElementById("romanticMusic");
 
-let yesSize = 20;
-let noSize = 20;
+let yesSize = 18;
+let noSize = 18;
 
 noBtn.addEventListener("click", function(){
-    yesSize += 10;
-    noSize -= 3;
+    yesSize += 6;
+    noSize -= 2;
 
     yesBtn.style.fontSize = yesSize + "px";
-    yesBtn.style.padding = (yesSize/2) + "px";
+    yesBtn.style.padding = "15px " + (yesSize) + "px";
 
     noBtn.style.fontSize = noSize + "px";
-    noBtn.style.padding = (noSize/2) + "px";
+    noBtn.style.padding = "15px " + (noSize) + "px";
 
-    if(noSize <= 5){
+    if(noSize <= 8){
         noBtn.style.display = "none";
     }
 });
 
 yesBtn.addEventListener("click", function(){
 
-    music.play(); // 🎵 Reproduce la música
+    music.play();
 
     document.body.innerHTML = `
-    <div style="margin-top:100px; position:relative; z-index:2;">
-        <h1 style="color:#d63384;">Tu y yo 💕</h1>
+    <div class="container">
+        <h1>Tu y yo 💕</h1>
         <h2>Bryita y Nicolita</h2>
         <h3>Lugar: Maki cocina japonesa o Nación Sushi 🍣</h3>
         <h3>Día: Domingo 15 de febrero</h3>
         <h3>Dresscode: Tú siempre te ves hermosa ✨</h3>
-        <p style="font-size:20px;">
+        <p>
         Espero que quedemos llenitos y felices después de comer sushi juntos :3 💖
         </p>
     </div>
     `;
-    
+
     startHearts();
 });
 
